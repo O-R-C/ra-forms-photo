@@ -14,10 +14,17 @@ const Photo = () => {
     setDataPhotos([...dataPhotos, ...urls])
   }
 
+  const handleDelete = (id) => {
+    setDataPhotos(dataPhotos.filter((item) => item.id !== id))
+  }
+
   return (
     <div className={styles.container}>
       <InputFile onChange={handleOnChange} />
-      <Items items={dataPhotos} />
+      <Items
+        items={dataPhotos}
+        onDelete={handleDelete}
+      />
     </div>
   )
 }

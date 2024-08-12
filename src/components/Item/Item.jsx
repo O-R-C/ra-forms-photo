@@ -1,7 +1,7 @@
 import propTypes from 'prop-types'
 import styles from './Item.module.css'
 
-const Item = ({ name, src }) => {
+const Item = ({ name, src, id }) => {
   return (
     <div className={styles.item}>
       <img
@@ -9,6 +9,12 @@ const Item = ({ name, src }) => {
         src={src}
         alt={name}
       />
+      <button
+        className={styles.btnClose}
+        data-id={id}
+      >
+        ✘
+      </button>
     </div>
   )
 }
@@ -16,6 +22,7 @@ const Item = ({ name, src }) => {
 Item.propTypes = {
   name: propTypes.string.isRequired,
   src: propTypes.string.isRequired,
+  id: propTypes.string.isRequired,
 }
 
 export default Item
